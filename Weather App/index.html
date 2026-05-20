@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aero Weather</title>
+    <meta name="description" content="A beautiful and dynamic weather application showing real-time weather conditions and forecasts.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper" id="app-wrapper">
+        <main class="weather-container">
+            <header>
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="city-input" placeholder="Search for a city...">
+                    <button id="location-btn" class="icon-btn" title="Use Current Location">
+                        <i class="fas fa-location-crosshairs"></i>
+                    </button>
+                </div>
+                <div id="search-results" class="search-results hidden"></div>
+            </header>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Fetching weather data...</p>
+            </div>
+
+            <div id="error-message" class="error-message hidden">
+                <i class="fas fa-exclamation-circle"></i>
+                <p id="error-text">Location not found.</p>
+            </div>
+
+            <div id="weather-content" class="weather-content hidden">
+                <div class="location-header">
+                    <h1 id="city-name">London</h1>
+                    <p id="country-name">United Kingdom</p>
+                    <p id="date-time" class="date-time">Monday, 12:00 PM</p>
+                </div>
+
+                <div class="current-weather">
+                    <div class="weather-main">
+                        <img id="weather-icon" src="" alt="Weather Icon" class="weather-icon">
+                        <div class="temperature">
+                            <span id="temp">22</span><span class="unit">°C</span>
+                        </div>
+                    </div>
+                    <p id="weather-description" class="weather-description">Clear Sky</p>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <div class="detail-icon"><i class="fas fa-temperature-half"></i></div>
+                        <div class="detail-info">
+                            <p class="label">Feels Like</p>
+                            <p class="value"><span id="feels-like">24</span>°C</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon"><i class="fas fa-droplet"></i></div>
+                        <div class="detail-info">
+                            <p class="label">Humidity</p>
+                            <p class="value"><span id="humidity">45</span>%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon"><i class="fas fa-wind"></i></div>
+                        <div class="detail-info">
+                            <p class="label">Wind Speed</p>
+                            <p class="value"><span id="wind-speed">12</span> km/h</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-icon"><i class="fas fa-cloud"></i></div>
+                        <div class="detail-info">
+                            <p class="label">Cloud Cover</p>
+                            <p class="value"><span id="cloud-cover">10</span>%</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="forecast-section hidden" id="forecast-section">
+                    <h3>7-Day Forecast</h3>
+                    <div class="forecast-container" id="forecast-container">
+                        <!-- Forecast items will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
